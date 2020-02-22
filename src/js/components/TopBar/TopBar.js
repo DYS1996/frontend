@@ -26,31 +26,25 @@ export default function TopBar(props) {
     const location = useLocation();
     const theme = useTheme();
     const upSm = useMediaQuery(theme.breakpoints.up('sm'));
-    const upMd = useMediaQuery(theme.breakpoints.up('md'));
     return (
         <AppBar color="inherit">
             <Toolbar>
                 <Grid container justify="space-between" alignItems="center">
                     <Typography variant="h5">RedHand</Typography>
                     {upSm ? (
-                        <Box maxWidth={upMd ? undefined : 420}>
-                            <Grid item>
-                                <Grid
-                                    container
-                                    wrap="nowrap"
-                                    alignItems="center"
-                                    justify="flex-end"
-                                >
-                                    <Route component={() => <Search />} />
-                                    <Box ml={2}>
-                                        <Nav
-                                            links={links}
-                                            location={location}
-                                        />
-                                    </Box>
-                                </Grid>
+                        <Grid item>
+                            <Grid
+                                container
+                                wrap="nowrap"
+                                alignItems="center"
+                                justify="flex-end"
+                            >
+                                <Route component={() => <Search />} />
+                                <Box ml={2}>
+                                    <Nav links={links} location={location} />
+                                </Box>
                             </Grid>
-                        </Box>
+                        </Grid>
                     ) : (
                         <IconButton onClick={() => setMenuIn(prev => !prev)}>
                             <MenuIcon />

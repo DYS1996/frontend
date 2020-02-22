@@ -57,7 +57,7 @@ export default function GetComments() {
         return <CommentsLoading />;
     }
     if (err) {
-        return <ErrorCard subject={'Comments'} />;
+        return <ErrorCard msg="errors when fetching comments" />;
     }
     return (
         <>

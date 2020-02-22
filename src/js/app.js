@@ -1,7 +1,8 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Posts from './components/Posts';
 import TopBar from './components/TopBar';
+import ErrorCard from './components/ErrorCard';
 import Footer from './components/Footer';
 import Comments from './components/Comments';
 import Post from './components/Post';
@@ -24,32 +25,36 @@ export default function App() {
                 ]}
             />
             <Box mt={12}>
-                <Grid container direction="column" spacing={10}>
-                    <Route
-                        exact
-                        path={['/post', '/']}
-                        render={({ match }) => (
+                <Grid container direction="column">
+                    <Grid item container justify="center">
+                        <Grid item xs={upSm ? 6 : 10}>
+                            <Switch>
+                                <Route exact path="/">
+                                    <Posts />
+                                </Route>
+                                <Route exact path="/post">
+                                    <Post />
+                                </Route>
+                                <Route>
+                                    <ErrorCard msg="Oops! this address is invalid" />
+                                </Route>
+                            </Switch>
+                        </Grid>
+                    </Grid>
+                    <Route path="/post" exact>
+                        <Box mt={3}>
                             <Grid item container justify="center">
-                                <Grid item xs={upSm ? 6 : 10}>
-                                    {match.path == '/post' ? (
-                                        <Post />
-                                    ) : (
-                                        <Posts />
-                                    )}
+                                <Grid item xs={8}>
+                                    <Comments />
                                 </Grid>
                             </Grid>
-                        )}
-                    />
-                    <Route path="/post" exact>
-                        <Grid item container justify="center">
-                            <Grid item xs={8}>
-                                <Comments />
-                            </Grid>
-                        </Grid>
+                        </Box>
                     </Route>
-                    <Grid item container justify="center">
-                        <Footer />
-                    </Grid>
+                    <Box mt={7}>
+                        <Grid item container justify="center">
+                            <Footer />
+                        </Grid>
+                    </Box>
                 </Grid>
             </Box>
         </>

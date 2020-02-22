@@ -60,7 +60,7 @@ export default function GetPosts() {
         return <PostsLoading num={pageSize} />;
     }
     if (err) {
-        return <ErrorCard subject={'Posts'} />;
+        return <ErrorCard msg="errors when fetching posts" />;
     }
     return (
         <>

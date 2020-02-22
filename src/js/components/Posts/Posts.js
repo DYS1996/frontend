@@ -81,13 +81,14 @@ function NoPosts(props) {
                     subheaderTypographyProps={{ align: 'center' }}
                 />
                 <Grid container justify="center">
-                    <CardMedia
-                        style={{
-                            height: (384 * width) / screen.width,
-                            width: (384 * width) / screen.width,
-                        }}
-                        image={UnCon}
-                    />
+                    <Grid item xs={6}>
+                        <CardMedia
+                            style={{
+                                width: '100%',
+                            }}
+                            image={UnCon}
+                        />
+                    </Grid>
                 </Grid>
             </Card>
         </Box>

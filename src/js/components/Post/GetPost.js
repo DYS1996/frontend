@@ -46,7 +46,7 @@ export default function GetPost() {
         return <PostLoading />;
     }
     if (err) {
-        return <ErrorCard subject={'Post'} />;
+        return <ErrorCard msg="errors when fetching post" />;
     }
     return <Post {...post} />;
 }
