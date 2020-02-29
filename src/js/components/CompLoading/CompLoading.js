@@ -7,13 +7,10 @@ export default function CompLoading(props) {
     const { loadFunc, ...rest } = props;
     const Load = Loadable({
         loader: loadFunc,
-        loading() {
-            return <Manager />;
-        },
+        loading: Manager,
         render(Comp, ps) {
             return <Comp.default {...ps} />;
         },
-        timeout: 4500,
     });
     return <Load {...rest} />;
 }

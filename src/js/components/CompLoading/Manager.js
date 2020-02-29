@@ -5,14 +5,15 @@ import {
     Grid,
     CircularProgress,
     CardHeader,
+    Box,
     Modal,
     Card,
     CardContent,
 } from '@material-ui/core';
 
 export default function Manager(props) {
-    const { pastDelay = false, error, timeout } = props;
-    if (error || timeout) {
+    const { pastDelay, error } = props;
+    if (error) {
         console.error(error);
         return <Error />;
     }
@@ -39,9 +40,11 @@ function Error() {
                                 title="Gah!!! website crashes"
                                 titleTypographyProps="h1"
                             />
-                            <CardContent>
-                                Please refresh or back to homepage
-                            </CardContent>
+                            <Box mt={3}>
+                                <CardContent>
+                                    Please refresh or back to homepage
+                                </CardContent>
+                            </Box>
                         </Card>
                     </Grid>
                 </Grid>

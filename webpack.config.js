@@ -2,7 +2,6 @@ const path = require('path');
 const HtmlPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    devtool: 'source-map',
     module: {
         rules: [
             {

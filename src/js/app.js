@@ -67,7 +67,6 @@ function Main(props) {
                 <Box mt={3}>
                     <Grid item container justify="center">
                         <Grid item xs={8}>
-                            {/* <Comments /> */}
                             <CompLoading
                                 loadFunc={() => import('./components/Comments')}
                             />
