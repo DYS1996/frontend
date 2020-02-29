@@ -11,6 +11,7 @@ export default function CompLoading(props) {
         render(Comp, ps) {
             return <Comp.default {...ps} />;
         },
+        timeout: 5000,
     });
     return <Load {...rest} />;
 }
