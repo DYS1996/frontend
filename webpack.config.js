@@ -2,6 +2,9 @@ const path = require('path');
 const HtmlPlugin = require('html-webpack-plugin');
 
 module.exports = {
+    output: {
+        filename: '[name]-[contenthash].bundle.js'
+    },
     module: {
         rules: [
             {
